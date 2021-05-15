@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import ir.cafebazaar.poolakey.billing.consume.ConsumeFunction
 import ir.cafebazaar.poolakey.billing.purchase.PurchaseFunction
 import ir.cafebazaar.poolakey.billing.query.QueryFunction
+import ir.cafebazaar.poolakey.billing.skudetail.GetSkuDetailFunction
 import ir.cafebazaar.poolakey.callback.ConnectionCallback
 import ir.cafebazaar.poolakey.callback.ConsumeCallback
+import ir.cafebazaar.poolakey.callback.GetSkuDetailsCallback
 import ir.cafebazaar.poolakey.callback.PurchaseCallback
 import ir.cafebazaar.poolakey.callback.PurchaseIntentCallback
 import ir.cafebazaar.poolakey.callback.PurchaseQueryCallback
@@ -42,13 +44,19 @@ class Payment(context: Context, private val config: PaymentConfiguration) {
         context
     )
 
+    private val getSkuFunction = GetSkuDetailFunction(
+        context,
+        mainThread
+    )
+
     private val connection = BillingConnection(
         context = context,
         paymentConfiguration = config,
         backgroundThread = backgroundThread,
         purchaseFunction = purchaseFunction,
         consumeFunction = consumeFunction,
-        queryFunction = queryFunction
+        queryFunction = queryFunction,
+        skuDetailFunction = getSkuFunction
     )
 
     private val purchaseResultParser = PurchaseResultParser(rawDataToPurchaseInfo, purchaseVerifier)
@@ -189,6 +197,30 @@ class Payment(context: Context, private val config: PaymentConfiguration) {
      */
     fun getSubscribedProducts(callback: PurchaseQueryCallback.() -> Unit) {
         connection.queryPurchasedProducts(PurchaseType.SUBSCRIPTION, callback)
+    }
+
+    /**
+     * You can use this function to get detail of inApp product sku's,
+     * @param skuIds This contain all sku id's that you want to get info about it.
+     * @param callback You have to use callback in order to get detail of requested sku's.
+     */
+    fun getInAppSkuDetails(
+        skuIds: List<String>,
+        callback: GetSkuDetailsCallback.() -> Unit
+    ) {
+        connection.getSkuDetail(PurchaseType.IN_APP, skuIds, callback)
+    }
+
+    /**
+     * You can use this function to get detail of subscription product sku's,
+     * @param skuIds This contain all sku id's that you want to get info about it.
+     * @param callback You have to use callback in order to get detail of requested sku's.
+     */
+    fun getSubscriptionSkuDetails(
+        skuIds: List<String>,
+        callback: GetSkuDetailsCallback.() -> Unit
+    ) {
+        connection.getSkuDetail(PurchaseType.SUBSCRIPTION, skuIds, callback)
     }
 
     /**
