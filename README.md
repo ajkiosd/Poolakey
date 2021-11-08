@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/cafebazaar/Poolakey.svg?branch=master)](https://travis-ci.com/cafebazaar/Poolakey)
 [![CodeFactor](https://www.codefactor.io/repository/github/cafebazaar/poolakey/badge)](https://www.codefactor.io/repository/github/cafebazaar/poolakey) [![](https://api.bintray.com/packages/cafebazaar/Poolakey/Poolakey/images/download.svg)](https://bintray.com/beta/#/cafebazaar/Poolakey?tab=packages)
 -
-Android In-App Billing SDK for [~~Cafe Bazaar~~Myket](https://myket.ir/?l=en) App Store.
+Android In-App Billing SDK for [~~Cafe Bazaar~~ Myket](https://myket.ir/?l=en) App Store.
 ## Getting Started
 To start working with Poolakey, you need to add its dependency into your `build.gradle` file:
 ### Dependency
