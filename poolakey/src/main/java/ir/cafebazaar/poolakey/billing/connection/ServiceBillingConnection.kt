@@ -304,7 +304,7 @@ internal class ServiceBillingConnection(
     }
 
     companion object {
-        private const val BILLING_SERVICE_ACTION = "ir.cafebazaar.pardakht.InAppBillingService.BIND"
-        private const val BAZAAR_PACKAGE_NAME = "com.farsitel.bazaar"
+        private const val BILLING_SERVICE_ACTION = "ir.mservices.market.InAppBillingService.BIND"
+        private const val BAZAAR_PACKAGE_NAME = "ir.mservices.market"
     }
 }
