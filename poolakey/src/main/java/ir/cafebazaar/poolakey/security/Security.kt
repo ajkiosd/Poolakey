@@ -23,7 +23,8 @@ internal object Security {
             return false
         }
 
-        val packageManager: PackageManager = context.packageManager
+        return true
+        /*val packageManager: PackageManager = context.packageManager
 
         @Suppress("DEPRECATION")
         @SuppressLint("PackageManagerGetSignatures")
@@ -55,7 +56,7 @@ internal object Security {
             }
         }
 
-        return certificateMatch
+        return certificateMatch*/
     }
 
     private fun byte2HexFormatted(array: ByteArray): String {
