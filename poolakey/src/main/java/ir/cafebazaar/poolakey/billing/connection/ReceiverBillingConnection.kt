@@ -414,7 +414,7 @@ internal class ReceiverBillingConnection(
         private const val BAZAAR_WITH_RECEIVER_CONNECTION_VERSION = 801301
 
         private const val DEFAULT_SECURE_SIGNATURE = "secureBroadcastKey"
-        private const val ACTION_BAZAAR_BASE = "com.farsitel.bazaar."
+        private const val ACTION_BAZAAR_BASE = "ir.mservices.market."
         private const val ACTION_BAZAAR_POST = ".iab"
 
         private const val ACTION_BILLING_SUPPORT = ACTION_BAZAAR_BASE + "billingSupport"
