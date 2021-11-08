@@ -3,6 +3,6 @@ package ir.cafebazaar.poolakey.exception
 class BazaarNotFoundException : IllegalStateException() {
 
     override val message: String?
-        get() = "Bazaar is not installed"
+        get() = "Myket is not installed"
 
 }
